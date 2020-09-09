@@ -3,13 +3,21 @@ pipeline {
 	agent any
 	stages {
 		stage('Build'){
+			steps {
 			echo "Build"
 		}
+		}
 		stage('Test'){
-			echo "Test"
+			steps{
+				echo "Test"
+			}
+			
 		}
 		stage("Integration Test"){
-			echo "Integration Test"
+			steps {
+				echo "Integration Test"
+			}
+			
 		}
 	}
 	post{
@@ -19,7 +27,7 @@ pipeline {
 		success{
 			echo "I execute during successful build"
 		}
-		fail{
+		failure{
 			echo "I execute during failed build"
 		}
 		changed{
